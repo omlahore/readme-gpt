@@ -48,15 +48,15 @@ The extension is now installed and ready to use.
 
 This shows the "Explain this repo" button seamlessly integrated into the GitHub UI, next to the Star button.
 
-![Explain Button](https://github.com/user-attachments/assets/f150c173-ce75-4911-bdeb-0b2931f0875e)
 
+![Loading Screen](https://github.com/user-attachments/assets/87cf5a71-4ec7-49b3-8140-082cf8ef35db)
 ---
 
 ### 2. Loading Screen While Analyzing
 
 A modern loading screen with a spinner appears while the extension fetches data and contacts the Groq API.
 
-![Loading Screen](https://github.com/user-attachments/assets/87cf5a71-4ec7-49b3-8140-082cf8ef35db)
+![AI Output](https://github.com/user-attachments/assets/7bf76bc3-a969-42d0-adf3-786658424d69)
 
 ---
 
@@ -64,7 +64,8 @@ A modern loading screen with a spinner appears while the extension fetches data 
 
 Once complete, a styled modal shows the full explanation including features, setup instructions, tech stack, and more.
 
-![AI Output](https://github.com/user-attachments/assets/7bf76bc3-a969-42d0-adf3-786658424d69)
+
+![Explain Button](https://github.com/user-attachments/assets/f150c173-ce75-4911-bdeb-0b2931f0875e)
 
 ---
 
