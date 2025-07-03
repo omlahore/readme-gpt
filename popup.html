@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>README-GPT Settings</title>
+  <style>
+    body {
+      width: 350px;
+      min-height: 200px;
+      margin: 0;
+      padding: 20px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: #f6f8fa;
+      color: #24292f;
+    }
+
+    .container {
+      background: white;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      margin: 0 0 20px 0;
+      font-size: 18px;
+      font-weight: 600;
+      color: #24292f;
+      text-align: center;
+    }
+
+    .status {
+      margin-top: 12px;
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 13px;
+      text-align: center;
+    }
+
+    .status.success {
+      background-color: #dafbe1;
+      color: #116329;
+      border: 1px solid #a3f3bf;
+    }
+
+    .help-text {
+      margin-top: 12px;
+      font-size: 12px;
+      color: #656d76;
+      line-height: 1.4;
+    }
+
+    .help-text a {
+      color: #0969da;
+      text-decoration: none;
+    }
+
+    .help-text a:hover {
+      text-decoration: underline;
+    }
+
+    .feature-list {
+      margin: 16px 0;
+      padding-left: 20px;
+    }
+
+    .feature-list li {
+      margin-bottom: 8px;
+      font-size: 13px;
+    }
+
+    .ai-info {
+      background-color: #f1f8ff;
+      border: 1px solid #c2e0ff;
+      border-radius: 6px;
+      padding: 12px;
+      margin: 16px 0;
+      font-size: 13px;
+    }
+
+    .ai-info h3 {
+      margin: 0 0 8px 0;
+      font-size: 14px;
+      color: #0969da;
+    }
+
+    .ai-info p {
+      margin: 0;
+      color: #24292f;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>README-GPT</h1>
+    
+    <div class="ai-info">
+      <h3>⚡ Powered by Groq</h3>
+      <p>This extension uses Groq's ultra-fast LLM to analyze GitHub repositories and provide intelligent explanations.</p>
+    </div>
+    
+    <div id="status" class="status success" style="display: block;">
+      ✅ Ready to analyze repositories!
+    </div>
+    
+    <div class="help-text">
+      <p><strong>How to use:</strong></p>
+      <ol>
+        <li>Navigate to any GitHub repository</li>
+        <li>Look for the "Explain this repo" button near the Star button</li>
+        <li>Click it to get an AI-powered analysis</li>
+      </ol>
+      
+      <p><strong>Features:</strong></p>
+      <ul class="feature-list">
+        <li>📊 Repository overview and purpose</li>
+        <li>🚀 Key features and capabilities</li>
+        <li>🛠️ Technology stack analysis</li>
+        <li>🏗️ Project architecture insights</li>
+        <li>⚡ Getting started guide</li>
+        <li>💡 Use cases and applications</li>
+        <li>🤝 Contributing guidelines</li>
+      </ul>
+      
+      <p><strong>Supported file types:</strong></p>
+      <p>README.md, package.json, requirements.txt, Cargo.toml, go.mod, Dockerfile, and 10+ more configuration files.</p>
+      
+      <p><strong>Note:</strong> The extension works with public GitHub repositories and uses Groq's ultra-fast LLM for analysis.</p>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html> 

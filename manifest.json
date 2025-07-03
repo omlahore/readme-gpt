@@ -1,0 +1,36 @@
+{
+  "manifest_version": 3,
+  "name": "README-GPT",
+  "version": "1.0.1",
+  "description": "Enhance GitHub repositories with AI-powered explanations using Groq",
+  "permissions": [
+    "activeTab"
+  ],
+  "host_permissions": [
+    "https://github.com/*",
+    "https://api.github.com/*",
+    "https://api.groq.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://github.com/*"],
+      "js": ["content.js"],
+      "css": ["styles.css"]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "README-GPT - AI Repository Analysis"
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "browser_specific_settings": {
+  "gecko": {
+    "id": "readme-gpt@yourdomain.com",
+    "strict_min_version": "109.0"
+  }
+}
+} 

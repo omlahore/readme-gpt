@@ -1,0 +1,315 @@
+/* README-GPT Chrome Extension Styles */
+
+/* Explain Button (GitHub green, matches GitHub's .btn) */
+.readme-gpt-btn {
+  display: inline-flex;
+  align-items: center;
+  background-color: #2DBA4E;
+  color: #fff;
+  border: 1px solid #2DBA4E;
+  border-radius: 6px;
+  padding: 4px 12px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  height: 28px;
+  min-height: 28px;
+  cursor: pointer;
+  transition: background 0.15s, border 0.15s;
+  margin-left: 8px;
+  font-family: inherit;
+  vertical-align: middle;
+  box-shadow: none;
+  position: relative;
+  min-width: 0;
+}
+
+.readme-gpt-btn:hover,
+.readme-gpt-btn:focus {
+  background-color: #28a745;
+  border-color: #28a745;
+  outline: none;
+}
+
+.readme-gpt-btn:active {
+  background-color: #24913c;
+  border-color: #24913c;
+}
+
+.readme-gpt-btn:disabled {
+  background-color: #94d3a2;
+  border-color: #94d3a2;
+  color: #fff;
+  cursor: not-allowed;
+}
+
+.readme-gpt-btn .readme-gpt-icon {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  vertical-align: middle;
+  margin-right: 6px;
+}
+
+.readme-gpt-btn span {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 20px;
+}
+
+.readme-gpt-btn:first-child {
+  margin-left: 0;
+}
+
+/* Modal */
+.readme-gpt-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  backdrop-filter: blur(2px);
+}
+
+.readme-gpt-modal-content {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  max-width: 600px;
+  width: 90%;
+  max-height: 80vh;
+  overflow: hidden;
+  animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.readme-gpt-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  border-bottom: 1px solid #d0d7de;
+  background-color: #f6f8fa;
+}
+
+.readme-gpt-modal-header h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #24292f;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.readme-gpt-close-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #656d76;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  transition: all 0.15s ease-in-out;
+  line-height: 1;
+}
+
+.readme-gpt-close-btn:hover {
+  background-color: #d0d7de;
+  color: #24292f;
+}
+
+.readme-gpt-modal-body {
+  padding: 24px;
+  max-height: 60vh;
+  overflow-y: auto;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.6;
+  color: #24292f;
+}
+
+.readme-gpt-modal-body p {
+  margin: 0 0 16px 0;
+  font-size: 14px;
+}
+
+.readme-gpt-modal-body h4 {
+  margin: 20px 0 12px 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #24292f;
+}
+
+.readme-gpt-modal-body ul, .readme-gpt-modal-body ol {
+  margin: 12px 0;
+  padding-left: 20px;
+}
+
+.readme-gpt-modal-body li {
+  margin-bottom: 4px;
+}
+
+.readme-gpt-modal-body code {
+  background-color: #f6f8fa;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  font-size: 13px;
+  color: #d73a49;
+}
+
+.readme-gpt-modal-body pre {
+  background-color: #f6f8fa;
+  padding: 16px;
+  border-radius: 6px;
+  overflow-x: auto;
+  margin: 16px 0;
+  border: 1px solid #d0d7de;
+}
+
+.readme-gpt-modal-body pre code {
+  background: none;
+  padding: 0;
+  color: #24292f;
+}
+
+/* Loading Indicator */
+.readme-gpt-loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  backdrop-filter: blur(2px);
+}
+
+.readme-gpt-loading-content {
+  background: white;
+  border-radius: 12px;
+  padding: 32px;
+  text-align: center;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  animation: loadingSlideIn 0.3s ease-out;
+}
+
+@keyframes loadingSlideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.readme-gpt-loading-content p {
+  margin: 16px 0 0 0;
+  font-size: 16px;
+  color: #24292f;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Spinner */
+.readme-gpt-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f4f6;
+  border-top: 4px solid #0969da;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .readme-gpt-modal-content {
+    width: 95%;
+    max-height: 90vh;
+  }
+  
+  .readme-gpt-modal-header {
+    padding: 16px 20px;
+  }
+  
+  .readme-gpt-modal-body {
+    padding: 20px;
+  }
+  
+  .readme-gpt-btn {
+    font-size: 13px;
+    padding: 6px 12px;
+  }
+}
+
+/* Dark mode support (if GitHub is in dark mode) */
+@media (prefers-color-scheme: dark) {
+  .readme-gpt-modal-content {
+    background-color: #0d1117;
+    color: #c9d1d9;
+  }
+  
+  .readme-gpt-modal-header {
+    background-color: #161b22;
+    border-bottom-color: #30363d;
+  }
+  
+  .readme-gpt-modal-header h3 {
+    color: #c9d1d9;
+  }
+  
+  .readme-gpt-modal-body {
+    color: #c9d1d9;
+  }
+  
+  .readme-gpt-modal-body code {
+    background-color: #161b22;
+    color: #ff7b72;
+  }
+  
+  .readme-gpt-modal-body pre {
+    background-color: #161b22;
+    border-color: #30363d;
+  }
+  
+  .readme-gpt-modal-body pre code {
+    color: #c9d1d9;
+  }
+  
+  .readme-gpt-loading-content {
+    background-color: #0d1117;
+    color: #c9d1d9;
+  }
+  
+  .readme-gpt-loading-content p {
+    color: #c9d1d9;
+  }
+  
+  .readme-gpt-spinner {
+    border-color: #21262d;
+    border-top-color: #0969da;
+  }
+} 
