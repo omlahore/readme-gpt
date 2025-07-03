@@ -1,184 +1,211 @@
 # README-GPT Chrome Extension
 
-A Chrome browser extension that enhances GitHub repositories with AI-powered explanations using Groq.
+README-GPT is a Chrome extension that enhances GitHub repositories with intelligent, AI-powered explanations using Groq’s ultra-fast LLM. It fetches key project files and generates detailed summaries directly in the browser — no setup or API key required from the user.
+
+---
 
 ## Features
 
-- **Smart Repository Analysis**: Fetches README.md and key files from GitHub repositories
-- **AI-Powered Explanations**: Uses Groq's ultra-fast LLM to generate detailed explanations
-- **Seamless Integration**: Injects an "Explain this repo" button directly into GitHub pages
-- **No Configuration Required**: Works out of the box with pre-configured AI access
-- **Modern UI**: Clean, responsive design that matches GitHub's aesthetic
-- **Multi-Language Support**: Analyzes repositories in various programming languages
-- **Intelligent File Detection**: Automatically identifies and analyzes key project files
+- Smart repository analysis using GitHub public APIs  
+- AI-powered explanations using Groq's Llama3-70B model  
+- Seamless GitHub integration with a native-style button  
+- Clean, responsive UI that matches GitHub's design  
+- Automatically identifies and fetches key files (README.md, package.json, Dockerfile, etc.)  
+- Multi-language support for JavaScript, Python, Go, Rust, and more  
+
+---
 
 ## Installation
 
 ### Development Mode
 
-1. **Clone or download this repository**
+1. Clone or download this repository  
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/yourusername/readme-gpt
    cd readme-gpt
    ```
 
-2. **Open Chrome and navigate to Extensions**
-   - Go to `chrome://extensions/`
-   - Enable "Developer mode" (toggle in top-right corner)
+2. Open Chrome and navigate to `chrome://extensions/`  
+3. Enable **Developer mode** using the toggle in the top-right  
+4. Click **"Load unpacked"** and select the `readme-gpt` folder  
 
-3. **Load the extension**
-   - Click "Load unpacked"
-   - Select the `readme-gpt` folder containing the extension files
+The extension is now installed and ready to use.
 
-4. **Start using immediately**
-   - No API key configuration needed!
-   - The extension is ready to use with Groq's ultra-fast LLM
+---
 
 ## Usage
 
-1. **Navigate to any GitHub repository**
-   - Go to a repository like `https://github.com/username/repo-name`
+1. Navigate to any GitHub repository (e.g., https://github.com/facebook/react)  
+2. Look for the **"Explain this repo"** button near the **Star** button  
+3. Click the button to trigger AI analysis  
+4. A modal will appear with a detailed explanation of the repository
 
-2. **Click the "Explain this repo" button**
-   - The button appears near the "Star" button in the repository header
-   - Click it to start the AI analysis
+---
 
-3. **View the explanation**
-   - A modal will appear with the AI-generated explanation
-   - The explanation includes repository overview, key features, and technical details
+## Screenshots
+
+### 1. Extension Button on GitHub
+
+This shows the "Explain this repo" button seamlessly integrated into the GitHub UI, next to the Star button.
+
+![Explain Button](https://github.com/user-attachments/assets/f150c173-ce75-4911-bdeb-0b2931f0875e)
+
+---
+
+### 2. Loading Screen While Analyzing
+
+A modern loading screen with a spinner appears while the extension fetches data and contacts the Groq API.
+
+![Loading Screen](https://github.com/user-attachments/assets/87cf5a71-4ec7-49b3-8140-082cf8ef35db)
+
+---
+
+### 3. AI-Generated Explanation Output
+
+Once complete, a styled modal shows the full explanation including features, setup instructions, tech stack, and more.
+
+![AI Output](https://github.com/user-attachments/assets/7bf76bc3-a969-42d0-adf3-786658424d69)
+
+---
+
+### 4. Full Modal UI in Context
+
+Complete view of the output modal inside the GitHub page.
+
+![Modal Overview](https://github.com/user-attachments/assets/ed1bdcbe-2842-4114-a887-847d40bcd284)
+
+---
 
 ## How It Works
 
 ### Repository Analysis
-The extension analyzes repositories by:
 
-1. **Fetching Repository Metadata**: Uses GitHub's public API to get repository information
-2. **Identifying Key Files**: Looks for important files like:
-   - `README.md` - Project documentation
-   - `package.json` - Node.js dependencies and scripts
-   - `requirements.txt` - Python dependencies
-   - `Cargo.toml` - Rust project configuration
-   - `go.mod` - Go module dependencies
-   - `Dockerfile` - Container configuration
-   - And many more...
-
-3. **Content Extraction**: Fetches and decodes the content of key files
-4. **AI Analysis**: Sends structured data to Groq for comprehensive analysis
+- Retrieves metadata and content from GitHub via public API
+- Detects and fetches key project files like:
+  - README.md
+  - package.json
+  - requirements.txt
+  - Dockerfile
+  - and more
+- Structures and sends this content to Groq's LLM for analysis
 
 ### AI Prompt Construction
-The extension constructs intelligent prompts that include:
-- Repository metadata (stars, forks, language, topics)
-- README content for project description
-- Configuration files for technology stack analysis
-- File structure for architectural insights
+
+- Combines metadata, file contents, and structure
+- Sends a prompt to Groq for a comprehensive explanation
 
 ### Response Formatting
-Groq responses are formatted to include:
-- **Repository Overview**: What the project does and its purpose
-- **Key Features**: Main capabilities and functionality
-- **Technology Stack**: Technologies, frameworks, and tools used
-- **Architecture**: Project structure and organization
-- **Getting Started**: How to set up and run the project
-- **Use Cases**: Typical applications and scenarios
-- **Contributing**: How developers can contribute
+
+- Explanation includes:
+  - Repository overview
+  - Key features
+  - Technology stack
+  - Architecture
+  - Getting started
+  - Contribution guidelines
+  - Use cases
+
+---
 
 ## File Structure
 
 ```
 readme-gpt/
-├── manifest.json      # Extension configuration (Manifest V3)
-├── content.js         # Content script with Groq AI integration
-├── popup.html         # Extension information popup
-├── popup.js           # Popup script for extension status
-├── styles.css         # Styling for buttons, modals, and UI components
-└── README.md          # This file
+├── manifest.json       # Extension manifest (V3)
+├── content.js          # Core logic and DOM injection
+├── popup.html          # Extension popup UI
+├── popup.js            # Popup logic
+├── styles.css          # Modal and button styling
+└── README.md           # This file
 ```
+
+---
 
 ## Technical Details
 
 ### APIs Used
-- **GitHub API**: Fetches repository data and file contents
-- **Groq API**: Generates intelligent explanations
+
+- GitHub REST API for repository data  
+- Groq API (Llama3-70B model) for AI explanations  
 
 ### Permissions
-- `activeTab`: For accessing the current GitHub tab
-- `host_permissions`: For GitHub and Groq API access
 
-### Browser Compatibility
-- Chrome 88+ (Manifest V3 support)
-- Edge 88+ (Chromium-based)
-- Other Chromium-based browsers
+- `activeTab` – Access the active browser tab  
+- `host_permissions` – Required for GitHub and Groq domains  
 
-### Supported File Types
-The extension analyzes these file types (in order of priority):
-- `README.md` - Project documentation
-- `package.json` - Node.js projects
-- `requirements.txt` - Python projects
-- `Cargo.toml` - Rust projects
-- `go.mod` - Go projects
-- `pom.xml` - Maven projects
-- `build.gradle` - Gradle projects
-- `Gemfile` - Ruby projects
-- `composer.json` - PHP projects
-- `Dockerfile` - Container projects
-- `docker-compose.yml` - Multi-container projects
-- `Makefile` - Build automation
-- `CMakeLists.txt` - CMake projects
-- `setup.py` - Python setup
-- `pyproject.toml` - Modern Python projects
+---
+
+## Supported File Types
+
+- README.md  
+- package.json  
+- requirements.txt  
+- Cargo.toml  
+- go.mod  
+- pom.xml  
+- build.gradle  
+- Gemfile  
+- composer.json  
+- Dockerfile  
+- docker-compose.yml  
+- Makefile  
+- CMakeLists.txt  
+- setup.py  
+- pyproject.toml  
+
+---
 
 ## Security
 
-- No API keys required from users
-- Uses pre-configured Groq API access
-- No data is sent to external servers except GitHub and Groq APIs
-- All API requests are made directly from the content script
-- GitHub API calls use public endpoints (no authentication required)
+- No API key required from users  
+- Only GitHub and Groq APIs are accessed  
+- No third-party server interaction  
+- All logic runs client-side  
+
+---
 
 ## Error Handling
 
-The extension includes comprehensive error handling for:
-- Network connectivity issues
-- GitHub API rate limits
-- Groq API errors
-- Invalid repository URLs
-- Missing or inaccessible files
+Handles:
+
+- Rate limits from Groq or GitHub  
+- Missing files or metadata  
+- Network failures or API outages  
+- Invalid or malformed repository pages  
+
+---
 
 ## Performance
 
-- Efficient file fetching with parallel requests
-- Smart caching of repository data
-- Optimized prompt construction
-- Responsive UI with loading indicators
-- Ultra-fast AI responses with Groq
+- Parallel file fetching  
+- Optimized prompt construction  
+- Lightweight and responsive UI  
+- Fast AI generation using Groq’s infrastructure  
+
+---
 
 ## Contributing
 
-This extension is now feature-complete! However, you can still contribute by:
-- Reporting bugs or issues
-- Suggesting improvements to the AI prompts
-- Adding support for additional file types
-- Enhancing the UI/UX
-- Improving error handling
+Ways to contribute:
+
+- Submit bug reports or feature requests  
+- Improve UI/UX  
+- Add support for new file types  
+- Refactor prompt logic or error handling  
+
+---
 
 ## License
 
-MIT License - feel free to use and modify as needed.
+This project is licensed under the MIT License.
+
+---
 
 ## Support
 
-If you encounter any issues:
-1. Ensure you're on a valid GitHub repository page
-2. Check the browser console for any error messages
-3. Verify that the extension has the necessary permissions
-4. Make sure you have an active internet connection
+If something isn’t working:
 
-## AI Model
-
-This extension uses **Groq's Llama3-70B-8192**, an ultra-fast LLM that provides:
-- Lightning-fast response times
-- Comprehensive repository analysis
-- Natural language explanations
-- Technical insights and recommendations
-- Multi-language code understanding
-- Context-aware responses 
+1. Confirm you're on a GitHub repository page  
+2. Open browser console for errors  
+3. Verify extension is enabled  
+4. Check your network connection  
